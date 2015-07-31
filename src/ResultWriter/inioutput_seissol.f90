@@ -192,7 +192,8 @@ CONTAINS
         i_state     = c_loc(disc%DynRup%stateVar),  &
         i_strength  = c_loc(disc%DynRup%strength),  &
         i_numSides  = c_loc(mesh%fault%nSide),      &
-        i_numBndGP  = c_loc(disc%galerkin%nBndGP)   )
+        i_numBndGP  = c_loc(disc%galerkin%nBndGP),  &
+        i_refinement= c_loc(io%Refinement))
 #else
     if (IO%Format .eq. 6) then
         call waveFieldWriterInit(0, disc, eqn, io, mesh, mpi)

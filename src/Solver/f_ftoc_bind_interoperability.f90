@@ -173,7 +173,8 @@ module f_ftoc_bind_interoperability
   end interface
 
   interface c_interoperability_initializeIO
-    subroutine c_interoperability_initializeIO( i_mu, i_slipRate1, i_slipRate2, i_slip1, i_slip2, i_state, i_strength, i_numSides, i_numBndGP ) &
+    subroutine c_interoperability_initializeIO( i_mu, i_slipRate1, i_slipRate2, i_slip1, i_slip2, i_state, i_strength, i_numSides, &
+        i_numBndGP, i_refinement ) &
         bind( C, name='c_interoperability_initializeIO' )
       use iso_c_binding, only: c_ptr
       implicit none
@@ -187,6 +188,7 @@ module f_ftoc_bind_interoperability
       type(c_ptr), value                     :: i_strength
       type(c_ptr), value                     :: i_numSides
       type(c_ptr), value                     :: i_numBndGP
+      type(c_ptr), value                     :: i_refinement
     end subroutine
   end interface
 
